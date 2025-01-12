@@ -8,13 +8,25 @@
           </li>
           <li class="nav-item active">
             <a class="nav-link" routerLink="/admin"
-            *ngIf="userService.roleMatch(['Admin'])"
+            *ngIf="userService.roleMatch(['ADMIN'])"
             >Admin Dashboard</a>
           </li>
 
           <li class="nav-item active">
             <a class="nav-link" routerLink="/donor"
-            *ngIf="userService.roleMatch(['User'])">User Dashboard</a>
+            *ngIf="userService.roleMatch(['USER'])">User Dashboard</a>
+          </li>
+
+          <li class="nav-item active">
+            <a class="nav-link" routerLink="/organizer"
+            *ngIf="userService.roleMatch(['ORGANIZER'])"
+            >ORGANIZER Dashboard</a>
+          </li>
+
+          <li class="nav-item active">
+            <a class="nav-link" routerLink="/bloodBank"
+            *ngIf="userService.roleMatch(['BLOOD_BANK'])"
+            >BLOOD BANK Dashboard</a>
           </li>
         </ul>
         <button *ngIf="! isLoggedIn()" type="button" class="btn btn-success" routerLink="/login">LogIn</button>

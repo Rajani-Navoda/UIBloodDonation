@@ -15,7 +15,8 @@ export class AuthInterceptor implements HttpInterceptor{
             return next.handle(req.clone());
         }
         const token = this.userAuthService.getToken();
-
+    
+       
        req = this.addToken(req, token);
 
        return next.handle(req).pipe(
@@ -33,13 +34,29 @@ export class AuthInterceptor implements HttpInterceptor{
        );
     }
 
-    private addToken(request: HttpRequest<any>, token:string){
-        return request.clone(
-            {
-                setHeaders:{
-                    Authorization: `Bearer ${token}`
-                }
+    // private addToken(request: HttpRequest<any>, token:string){
+    //    const clonedReq = request.clone(
+    //         {
+    //             setHeaders:{
+    //                 Authorization: `Bearer ${token}`
+    //             }
+    //         }
+    //     );
+    //     return clonedReq;
+    // }
+
+    private addToken(request: HttpRequest<any>, token: string) {
+        if (!token) {
+            console.warn('No token found');
+            return request;
+        }
+        
+        console.log('Adding token to request:', token.substring(0, 20) + '...');
+        return request.clone({
+            setHeaders: {
+                Authorization: `Bearer ${token.trim()}`
             }
-        );
+        });
     }
+    
 }

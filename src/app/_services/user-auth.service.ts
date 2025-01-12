@@ -19,9 +19,11 @@ export class UserAuthService {
     localStorage.setItem("jwtToken", jwtToken);
   }
 
-  public getToken() : string{
-    return localStorage.getItem("jwtToken");
-  }
+  public getToken(): string {
+    const token = localStorage.getItem('jwtToken');
+    console.log('Retrieved token:', token);
+    return token;
+}
 
   public clear(){
     localStorage.clear();

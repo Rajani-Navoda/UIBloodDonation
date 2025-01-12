@@ -16,6 +16,8 @@ import { RouterModule } from '@angular/router';
 import { AuthGuard } from './_auth/auth.guard';
 import { AuthInterceptor } from './_auth/auth.interceptor';
 import { UserService } from './_services/user.service';
+import { OrganizerComponent } from './organizer/organizer.component';
+import { BloodBankComponent } from './blood-bank/blood-bank.component';
 
 
 @NgModule({
@@ -27,6 +29,8 @@ import { UserService } from './_services/user.service';
     LoginComponent,
     HeaderComponent,
     ForbiddenComponent,
+    OrganizerComponent,
+    BloodBankComponent,
   ],
   imports: [
     BrowserModule,

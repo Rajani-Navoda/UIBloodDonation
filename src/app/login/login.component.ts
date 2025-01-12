@@ -19,26 +19,75 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  login(loginForm: NgForm){
-    this.userService.login(loginForm.value).subscribe(
-      (response : any) => {
-        console.log(response.jwtToken);
-        console.log(response.user.role);
+  // login(loginForm: NgForm){
 
-        this.userAuthService.setRoles(response.user.role);
-        this.userAuthService.setToken(response.jwtToken);
-       const role = response.user.role[0].roleName;
+  //   const loginData = {
+  //     userName: loginForm.value.userName,
+  //     userPassword: loginForm.value.userPassword
+  //   };
 
-        if(role === 'Admin'){
-          this.router.navigate(['/admin']);
-        } else{
-          this.router.navigate(['/donor']);
+  //   this.userService.login(loginForm.value).subscribe({
+  //     next: (response: any) => {
+        
+  //       console.log('Login response:', response); 
+        
+  //       if (response && response.jwtToken) {
+       
+  //         this.userAuthService.setToken(response.jwtToken);
+
+  //         this.userAuthService.setRoles(response.user.role);
+          
+  //         const storedToken = localStorage.getItem('jwtToken');
+  //         console.log('Stored token:', storedToken);
+          
+  //         const role = response.user.role[0].roleName;
+  //         this.navigateByRole(role);
+  //       } else {
+  //         console.error('No token received in response');
+  //       }
+  //     },
+  //     error: (error) => {
+  //       console.error('Login failed:', error);
+  //     }
+  //   });
+  // }
+
+  login(loginForm: NgForm) {
+    this.userService.login(loginForm.value).subscribe({
+        next: (response: any) => {
+            if (response && response.jwtToken) {
+                localStorage.setItem('jwtToken', response.jwtToken);
+                this.userAuthService.setRoles(response.user.role);
+                const role = response.user.role[0].roleName;
+                this.navigateByRole(role);
+            }
+        },
+        error: (error) => {
+            console.error('Login failed:', error);
         }
-      },
-      (error) =>{
-        console.log(error);
-      }
-    );
-  }
+    });
+}
 
+
+
+
+    private navigateByRole(role: string) {
+      switch (role) {
+          case 'ADMIN':
+              this.router.navigate(['/admin']);
+              break;
+          case 'USER':
+              this.router.navigate(['/donor']);
+              break;
+          case 'ORGANIZER':
+              this.router.navigate(['/organizer']);
+              break;
+          case 'BLOOD_BANK':
+              this.router.navigate(['/bloodBank']);
+              break;
+          default:
+              this.router.navigate(['/forbidden']);
+              break;
+      }
+  }
 }
