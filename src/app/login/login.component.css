@@ -1,0 +1,25 @@
+.heading{
+    font-size: 50px;
+    font-weight: bold;
+}
+
+.section {
+    background-image: url('../../assets/background-home.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    min-height: 100vh; /* Ensures full height */
+    display: flex;
+    align-items: center; /* Centers content vertically */
+    justify-content: center; /* Centers content horizontally */
+}
+  
+
+.form-outline {
+    text-align: left;
+    font-size: 15px;
+    font-weight: bold;
+  }
+
+

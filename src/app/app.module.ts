@@ -18,6 +18,9 @@ import { AuthInterceptor } from './_auth/auth.interceptor';
 import { UserService } from './_services/user.service';
 import { OrganizerComponent } from './organizer/organizer.component';
 import { BloodBankComponent } from './blood-bank/blood-bank.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { Home2Component } from './home2/home2.component';
+import { ContactUsComponent } from './contact-us/contact-us.component';
 
 
 @NgModule({
@@ -31,6 +34,8 @@ import { BloodBankComponent } from './blood-bank/blood-bank.component';
     ForbiddenComponent,
     OrganizerComponent,
     BloodBankComponent,
+    Home2Component,
+    ContactUsComponent,
   ],
   imports: [
     BrowserModule,
@@ -38,7 +43,8 @@ import { BloodBankComponent } from './blood-bank/blood-bank.component';
     FormsModule,
     HttpClientModule,
     RouterModule,
-    CommonModule
+    CommonModule,
+    BrowserAnimationsModule
   ],
   providers: [
     AuthGuard,

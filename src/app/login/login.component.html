@@ -1,4 +1,4 @@
-<div class = "container mt-5">
+<!-- <div class = "container mt-5">
     <div class="card" style="padding: 20px;">
         <form #loginForm="ngForm" (ngSubmit)="login(loginForm)" >
             <input type="text"
@@ -23,4 +23,59 @@
         </form>
     </div>
 
-</div>
+</div> -->
+
+
+
+<!--  -->
+<section class="section">
+    <div class="container py-5 h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+          <div class="card shadow-2-strong" style="border-radius: 1rem;">
+            <div class="card-body p-5 text-center">
+              
+              <h3 class="mb-5 heading">SIGN IN</h3>
+
+
+
+              <form #loginForm="ngForm" (ngSubmit)="login(loginForm)" >
+                <div data-mdb-input-init class="form-outline mb-4 label">
+                    <label class="form-label text-start" for="typeEmailX-2">User Name</label>
+                <input type="text"
+                ngModel
+                name="userName"
+                id="userName"
+                class="form-control mb-3"
+                >
+                </div>
+
+    
+                <div data-mdb-input-init class="form-outline mb-4 label">
+                    <label class="form-label text-start" for="typeEmailX-2">Password</label>
+                <input type="password"
+                ngModel
+                name="userPassword"
+                id="userPassword"
+                placeholder="Enter your user password: "
+                class="form-control mb-3"
+                >
+                </div>
+
+                <input type="submit"
+                value="Login"
+                class="btn btn-primary btn-lg btn-block w-100" style="height: 60px;"
+                >
+                <div class="mb-3"></div>
+            </form>  
+              <div class="form-check d-flex justify-content-start">
+                <span class="text-black">Don't have an account? </span>&nbsp;
+                <a class="text-primary text-decoration-none" routerLink="/signup"> Sign up</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  

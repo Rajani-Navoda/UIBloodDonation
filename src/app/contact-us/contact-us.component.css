@@ -1,0 +1,94 @@
+#sect1 {
+    min-height: 100vh;
+    width: 100%;
+    color: #ffffff;
+    background-image: url("../../assets/contact-us.jpg");
+    background-size: cover;
+    background-position: center;
+    padding: 2rem 1rem;
+    font-family: monospace;
+  }
+  
+  .container {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .address-line {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 1.5rem;
+    gap: 1rem;
+  }
+  
+  .contact-info {
+    flex: 1;
+  }
+  
+  .contact-info-title {
+    color: cadetblue;
+    margin-bottom: 0.5rem;
+    font-size: 25px;
+    font-weight: 200;
+  }
+  
+  /* .form-container {
+    background: linear-gradient(rgb(0, 0, 0), rgb(170, 8, 8));
+    padding: 2rem;
+    border-radius: 8px;
+    height: 100%;
+  } */
+  
+  .form-control {
+    width: 100%;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+  }
+  
+  textarea.form-control {
+    min-height: 120px;
+  }
+  
+  .btn-info {
+    width: 100%;
+    padding: 0.75rem;
+    background: rgb(119, 116, 116);
+    border: none;
+    color: white;
+    font-weight: bold;
+    transition: background 0.3s ease;
+  }
+  
+  @media (max-width: 768px) {
+    .row {
+        flex-direction: column;
+    }
+    
+    .col-md-6 {
+        width: 100%;
+        margin-bottom: 2rem;
+    }
+    
+    .form-container {
+        margin-top: 2rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .container {
+        padding: 10px;
+    }
+    
+    .display-4 {
+        font-size: 2rem;
+    }
+    
+    .address-line {
+        flex-direction: column;
+    }
+  }

@@ -1,0 +1,176 @@
+.services-container {
+    padding: 50px 20px;
+    background-color: #0b0c01;
+  }
+  
+  .service-card {
+    margin-bottom: 50px;
+  }
+  
+  .card {
+    border: none;
+    border-radius: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+    min-height: 400px; /* Increased height */
+    position: relative;
+    z-index: 1;
+  }
+  
+  .bg-image {
+    background-size: cover;
+    background-position: center;
+    position: relative;
+  }
+  
+  .bg-image::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.419);
+    z-index: -1;
+  }
+  
+/* 
+  .bg-image-1 {
+    background-image: url('https://source.unsplash.com/random/1200x800/?campaign,organize');
+  }
+
+  .bg-image-2 {
+    background-image: url('../../assets/home2.jpg');
+  }
+  
+  
+  .bg-image-3 {
+    background-image: url('https://source.unsplash.com/random/1200x800/?donate,charity');
+  } */
+  
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15) !important;
+  }
+  
+  .card-body {
+    padding: 40px; /* Increased padding */
+    height: 100%;
+  }
+  
+  .service-title {
+    font-size: 42px; /* Significantly increased font size */
+    font-weight: 800;
+    margin-bottom: 25px;
+    color: #222;
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
+    line-height: 1.2;
+  }
+  
+  .service-description {
+    color: #333;
+    margin-bottom: 30px;
+    line-height: 1.8;
+    font-size: 22px; /* Increased font size */
+    font-weight: 400;
+  }
+  
+  .service-btn {
+    background-color: #e9ecef;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 18px; /* Increased font size */
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .service-btn:hover {
+    background-color: #dee2e6;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+  }
+  
+  /* Replace service-icon with service-image */
+  .service-image {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+  }
+  
+  .service-image img {
+    max-width: 100%;
+    max-height: 320px; /* Control the image height */
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease;
+  }
+  
+  .service-image img:hover {
+    transform: scale(1.03);
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 992px) {
+    .service-title {
+      font-size: 36px;
+    }
+    
+    .service-description {
+      font-size: 20px;
+    }
+    
+    .service-btn {
+      font-size: 16px;
+    }
+    
+    .card {
+      min-height: 350px;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .service-title {
+      font-size: 32px;
+    }
+    
+    .service-description {
+      font-size: 18px;
+    }
+    
+    .service-image {
+      margin: 20px 0;
+    }
+    
+    .service-image img {
+      max-height: 250px;
+    }
+    
+    .card {
+      min-height: auto;
+    }
+    
+    .card-body {
+      padding: 30px;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .service-title {
+      font-size: 28px;
+    }
+    
+    .service-description {
+      font-size: 16px;
+      line-height: 1.6;
+    }
+    
+    .service-image img {
+      max-height: 200px;
+    }
+  }
+  

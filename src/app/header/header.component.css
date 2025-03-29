@@ -1,0 +1,13 @@
+.nav-link {
+    color: rgb(253, 249, 249) !important;
+    font-family: 'Courier New', monospace;
+    font-size: 20px;
+    font-weight: 200;
+  
+  }
+  
+
+.navbar-brand {
+  font-size: 1.75rem;
+  letter-spacing: 1.5px;
+}
