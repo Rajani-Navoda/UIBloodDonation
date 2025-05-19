@@ -1,0 +1,305 @@
+<div class="sidebar-container" *ngIf="userRole === 'ADMIN'">
+	<button class="toggle-button" (click)="toggleSidebar()">
+	  <mat-icon>{{isExpanded ? 'chevron_left' : 'chevron_right'}}</mat-icon>
+	</button>
+  
+	<mat-sidenav-container class="example-container" autosize>
+	  <mat-sidenav #sidenav class="example-sidenav" 
+				  [ngClass]="{'collapsed': !isExpanded}"
+				  [mode]="isMobile ? 'over' : 'side'" 
+				  [opened]="isMobile ? false : true"
+				  (mouseenter)="mouseenter()" 
+				  (mouseleave)="mouseleave()">
+		<mat-nav-list>
+			<mat-list-item  class="parent">
+				<mat-icon mat-list-icon>power_settings_new</mat-icon>
+				<a mat-list-item routerLink="/adminDashboard/enable-session" routerLinkActive="active">
+				  Enable the session
+				</a>
+			</mat-list-item>
+
+			<mat-list-item (click)="showSubmenu = !showSubmenu" class="parent">
+				<mat-icon mat-list-icon>home</mat-icon>
+				<span class="full-width" *ngIf="isExpanded || isShowing">Daily tea count</span>
+				<mat-icon class="menu-button" [ngClass]="{'rotated' : showSubmenu}" *ngIf="isExpanded || isShowing">expand_more</mat-icon>
+			</mat-list-item>
+
+			<div class="submenu" [ngClass]="{'expanded' : showSubmenu}" *ngIf="isShowing || isExpanded">
+				<a mat-list-item routerLink="/adminDashboard/total-beverage-count" routerLinkActive="active">Total beverage count</a>
+				<a mat-list-item href="...">Submenu Item 2</a>
+				
+				<mat-list-item (click)="showSubSubMenu = !showSubSubMenu" class="parent">
+				  <span class="full-width" *ngIf="isExpanded || isShowing">Nested Menu</span>
+				  <mat-icon class="menu-button" [ngClass]="{'rotated' : showSubSubMenu}" *ngIf="isExpanded || isShowing">expand_more</mat-icon>
+				</mat-list-item>
+
+				<div class="submenu" [ngClass]="{'expanded' : showSubSubMenu}" *ngIf="isShowing || isExpanded">
+				  <mat-list-item>SubSubmenu Item 1</mat-list-item>
+				  <mat-list-item>SubSubmenu Item 2</mat-list-item>
+				</div>
+			</div>
+
+			<!-- New Parent Menu: Settings -->
+	
+			
+			<div class="submenu" [ngClass]="{'expanded': showSettings}" *ngIf="isShowing || isExpanded">
+				<!-- New nested submenu for Customize Beverages -->
+				<mat-list-item (click)="showCustomize = !showCustomize" class="parent">
+				  <span class="full-width" *ngIf="isExpanded || isShowing">Customize Beverages</span>
+				  <mat-icon class="menu-button" [ngClass]="{'rotated': showCustomize}" *ngIf="isExpanded || isShowing">expand_more</mat-icon>
+				</mat-list-item>
+
+				<div class="submenu" [ngClass]="{'expanded': showCustomize}" *ngIf="isShowing || isExpanded">
+					<a mat-list-item routerLink="/adminDashboard/add-beverage" routerLinkActive="active">
+						Add a beverage
+					</a>
+					<mat-list-item>Change the beverage price</mat-list-item>
+				</div>
+
+				<!-- New menu item for Add Department -->
+				<mat-list-item routerLink="/adminDashboard/add-department" routerLinkActive="active" class="parent">
+					<mat-icon mat-list-icon>business</mat-icon>
+					<span class="full-width" *ngIf="isExpanded || isShowing">Add Department</span>
+				</mat-list-item>
+			</div>
+		</mat-nav-list>
+	  </mat-sidenav>
+	  
+	  <mat-sidenav-content class="example-sidenav-content" [ngClass]="{'content-expanded': !isExpanded}">
+		<router-outlet></router-outlet>
+	  </mat-sidenav-content>
+	</mat-sidenav-container>
+</div>
+
+
+
+
+<div class="sidebar-container" *ngIf="userRole === 'ORGANIZER'">
+	<button class="toggle-button" (click)="toggleSidebar()">
+	  <mat-icon>{{isExpanded ? 'chevron_left' : 'chevron_right'}}</mat-icon>
+	</button>
+  
+	<mat-sidenav-container class="example-container" autosize>
+	  <mat-sidenav #sidenav class="example-sidenav" 
+				  [ngClass]="{'collapsed': !isExpanded}"
+				  [mode]="isMobile ? 'over' : 'side'" 
+				  [opened]="isMobile ? false : true"
+				  (mouseenter)="mouseenter()" 
+				  (mouseleave)="mouseleave()">
+		<mat-nav-list>
+			<mat-list-item  class="parent">
+				<mat-icon mat-list-icon>power_settings_new</mat-icon>
+				<a mat-list-item routerLink="/adminDashboard/enable-session" routerLinkActive="active">
+				  Enable the session
+				</a>
+			</mat-list-item>
+
+			<mat-list-item (click)="showSubmenu = !showSubmenu" class="parent">
+				<mat-icon mat-list-icon>home</mat-icon>
+				<span class="full-width" *ngIf="isExpanded || isShowing">Daily tea count</span>
+				<mat-icon class="menu-button" [ngClass]="{'rotated' : showSubmenu}" *ngIf="isExpanded || isShowing">expand_more</mat-icon>
+			</mat-list-item>
+
+			<div class="submenu" [ngClass]="{'expanded' : showSubmenu}" *ngIf="isShowing || isExpanded">
+				<a mat-list-item routerLink="/adminDashboard/total-beverage-count" routerLinkActive="active">Total beverage count</a>
+				<a mat-list-item href="...">Submenu Item 2</a>
+				
+				<mat-list-item (click)="showSubSubMenu = !showSubSubMenu" class="parent">
+				  <span class="full-width" *ngIf="isExpanded || isShowing">Nested Menu</span>
+				  <mat-icon class="menu-button" [ngClass]="{'rotated' : showSubSubMenu}" *ngIf="isExpanded || isShowing">expand_more</mat-icon>
+				</mat-list-item>
+
+				<div class="submenu" [ngClass]="{'expanded' : showSubSubMenu}" *ngIf="isShowing || isExpanded">
+				  <mat-list-item>SubSubmenu Item 1</mat-list-item>
+				  <mat-list-item>SubSubmenu Item 2</mat-list-item>
+				</div>
+			</div>
+
+			<!-- New Parent Menu: Settings -->
+	
+			
+			<div class="submenu" [ngClass]="{'expanded': showSettings}" *ngIf="isShowing || isExpanded">
+				<!-- New nested submenu for Customize Beverages -->
+				<mat-list-item (click)="showCustomize = !showCustomize" class="parent">
+				  <span class="full-width" *ngIf="isExpanded || isShowing">Customize Beverages</span>
+				  <mat-icon class="menu-button" [ngClass]="{'rotated': showCustomize}" *ngIf="isExpanded || isShowing">expand_more</mat-icon>
+				</mat-list-item>
+
+				<div class="submenu" [ngClass]="{'expanded': showCustomize}" *ngIf="isShowing || isExpanded">
+					<a mat-list-item routerLink="/adminDashboard/add-beverage" routerLinkActive="active">
+						Add a beverage
+					</a>
+					<mat-list-item>Change the beverage price</mat-list-item>
+				</div>
+
+				<!-- New menu item for Add Department -->
+				<mat-list-item routerLink="/adminDashboard/add-department" routerLinkActive="active" class="parent">
+					<mat-icon mat-list-icon>business</mat-icon>
+					<span class="full-width" *ngIf="isExpanded || isShowing">Add Department</span>
+				</mat-list-item>
+			</div>
+		</mat-nav-list>
+	  </mat-sidenav>
+	  
+	  <mat-sidenav-content class="example-sidenav-content" [ngClass]="{'content-expanded': !isExpanded}">
+		<router-outlet></router-outlet>
+	  </mat-sidenav-content>
+	</mat-sidenav-container>
+</div>
+
+
+
+
+
+<div class="sidebar-container" *ngIf="userRole === 'USER'">
+	<button class="toggle-button" (click)="toggleSidebar()">
+	  <mat-icon>{{isExpanded ? 'chevron_left' : 'chevron_right'}}</mat-icon>
+	</button>
+  
+	<mat-sidenav-container class="example-container" autosize>
+	  <mat-sidenav #sidenav class="example-sidenav" 
+				  [ngClass]="{'collapsed': !isExpanded}"
+				  [mode]="isMobile ? 'over' : 'side'" 
+				  [opened]="isMobile ? false : true"
+				  (mouseenter)="mouseenter()" 
+				  (mouseleave)="mouseleave()">
+		<mat-nav-list>
+			<mat-list-item  class="parent">
+				<mat-icon mat-list-icon>power_settings_new</mat-icon>
+				<a mat-list-item routerLink="/adminDashboard/enable-session" routerLinkActive="active">
+				  Enable the session
+				</a>
+			</mat-list-item>
+
+			<mat-list-item (click)="showSubmenu = !showSubmenu" class="parent">
+				<mat-icon mat-list-icon>home</mat-icon>
+				<span class="full-width" *ngIf="isExpanded || isShowing">Daily tea count</span>
+				<mat-icon class="menu-button" [ngClass]="{'rotated' : showSubmenu}" *ngIf="isExpanded || isShowing">expand_more</mat-icon>
+			</mat-list-item>
+
+			<div class="submenu" [ngClass]="{'expanded' : showSubmenu}" *ngIf="isShowing || isExpanded">
+				<a mat-list-item routerLink="/adminDashboard/total-beverage-count" routerLinkActive="active">Total beverage count</a>
+				<a mat-list-item href="...">Submenu Item 2</a>
+				
+				<mat-list-item (click)="showSubSubMenu = !showSubSubMenu" class="parent">
+				  <span class="full-width" *ngIf="isExpanded || isShowing">Nested Menu</span>
+				  <mat-icon class="menu-button" [ngClass]="{'rotated' : showSubSubMenu}" *ngIf="isExpanded || isShowing">expand_more</mat-icon>
+				</mat-list-item>
+
+				<div class="submenu" [ngClass]="{'expanded' : showSubSubMenu}" *ngIf="isShowing || isExpanded">
+				  <mat-list-item>SubSubmenu Item 1</mat-list-item>
+				  <mat-list-item>SubSubmenu Item 2</mat-list-item>
+				</div>
+			</div>
+
+			<!-- New Parent Menu: Settings -->
+	
+			
+			<div class="submenu" [ngClass]="{'expanded': showSettings}" *ngIf="isShowing || isExpanded">
+				<!-- New nested submenu for Customize Beverages -->
+				<mat-list-item (click)="showCustomize = !showCustomize" class="parent">
+				  <span class="full-width" *ngIf="isExpanded || isShowing">Customize Beverages</span>
+				  <mat-icon class="menu-button" [ngClass]="{'rotated': showCustomize}" *ngIf="isExpanded || isShowing">expand_more</mat-icon>
+				</mat-list-item>
+
+				<div class="submenu" [ngClass]="{'expanded': showCustomize}" *ngIf="isShowing || isExpanded">
+					<a mat-list-item routerLink="/adminDashboard/add-beverage" routerLinkActive="active">
+						Add a beverage
+					</a>
+					<mat-list-item>Change the beverage price</mat-list-item>
+				</div>
+
+				<!-- New menu item for Add Department -->
+				<mat-list-item routerLink="/adminDashboard/add-department" routerLinkActive="active" class="parent">
+					<mat-icon mat-list-icon>business</mat-icon>
+					<span class="full-width" *ngIf="isExpanded || isShowing">Add Department</span>
+				</mat-list-item>
+			</div>
+		</mat-nav-list>
+	  </mat-sidenav>
+	  
+	  <mat-sidenav-content class="example-sidenav-content" [ngClass]="{'content-expanded': !isExpanded}">
+		<router-outlet></router-outlet>
+	  </mat-sidenav-content>
+	</mat-sidenav-container>
+</div>
+
+
+
+
+
+
+<div class="sidebar-container" *ngIf="userRole === 'BLOOD_BANK'">
+	<button class="toggle-button" (click)="toggleSidebar()">
+	  <mat-icon>{{isExpanded ? 'chevron_left' : 'chevron_right'}}</mat-icon>
+	</button>
+  
+	<mat-sidenav-container class="example-container" autosize>
+	  <mat-sidenav #sidenav class="example-sidenav" 
+				  [ngClass]="{'collapsed': !isExpanded}"
+				  [mode]="isMobile ? 'over' : 'side'" 
+				  [opened]="isMobile ? false : true"
+				  (mouseenter)="mouseenter()" 
+				  (mouseleave)="mouseleave()">
+		<mat-nav-list>
+			<mat-list-item  class="parent">
+				<mat-icon mat-list-icon>power_settings_new</mat-icon>
+				<a mat-list-item routerLink="/adminDashboard/enable-session" routerLinkActive="active">
+				  Enable the session
+				</a>
+			</mat-list-item>
+
+			<mat-list-item (click)="showSubmenu = !showSubmenu" class="parent">
+				<mat-icon mat-list-icon>home</mat-icon>
+				<span class="full-width" *ngIf="isExpanded || isShowing">Daily tea count</span>
+				<mat-icon class="menu-button" [ngClass]="{'rotated' : showSubmenu}" *ngIf="isExpanded || isShowing">expand_more</mat-icon>
+			</mat-list-item>
+
+			<div class="submenu" [ngClass]="{'expanded' : showSubmenu}" *ngIf="isShowing || isExpanded">
+				<a mat-list-item routerLink="/adminDashboard/total-beverage-count" routerLinkActive="active">Total beverage count</a>
+				<a mat-list-item href="...">Submenu Item 2</a>
+				
+				<mat-list-item (click)="showSubSubMenu = !showSubSubMenu" class="parent">
+				  <span class="full-width" *ngIf="isExpanded || isShowing">Nested Menu</span>
+				  <mat-icon class="menu-button" [ngClass]="{'rotated' : showSubSubMenu}" *ngIf="isExpanded || isShowing">expand_more</mat-icon>
+				</mat-list-item>
+
+				<div class="submenu" [ngClass]="{'expanded' : showSubSubMenu}" *ngIf="isShowing || isExpanded">
+				  <mat-list-item>SubSubmenu Item 1</mat-list-item>
+				  <mat-list-item>SubSubmenu Item 2</mat-list-item>
+				</div>
+			</div>
+
+			<!-- New Parent Menu: Settings -->
+	
+			
+			<div class="submenu" [ngClass]="{'expanded': showSettings}" *ngIf="isShowing || isExpanded">
+				<!-- New nested submenu for Customize Beverages -->
+				<mat-list-item (click)="showCustomize = !showCustomize" class="parent">
+				  <span class="full-width" *ngIf="isExpanded || isShowing">Customize Beverages</span>
+				  <mat-icon class="menu-button" [ngClass]="{'rotated': showCustomize}" *ngIf="isExpanded || isShowing">expand_more</mat-icon>
+				</mat-list-item>
+
+				<div class="submenu" [ngClass]="{'expanded': showCustomize}" *ngIf="isShowing || isExpanded">
+					<a mat-list-item routerLink="/adminDashboard/add-beverage" routerLinkActive="active">
+						Add a beverage
+					</a>
+					<mat-list-item>Change the beverage price</mat-list-item>
+				</div>
+
+				<!-- New menu item for Add Department -->
+				<mat-list-item routerLink="/adminDashboard/add-department" routerLinkActive="active" class="parent">
+					<mat-icon mat-list-icon>business</mat-icon>
+					<span class="full-width" *ngIf="isExpanded || isShowing">Add Department</span>
+				</mat-list-item>
+			</div>
+		</mat-nav-list>
+	  </mat-sidenav>
+	  
+	  <mat-sidenav-content class="example-sidenav-content" [ngClass]="{'content-expanded': !isExpanded}">
+		<router-outlet></router-outlet>
+	  </mat-sidenav-content>
+	</mat-sidenav-container>
+</div>
+
+

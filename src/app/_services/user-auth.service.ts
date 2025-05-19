@@ -21,7 +21,7 @@ export class UserAuthService {
 
   public getToken(): string {
     const token = localStorage.getItem('jwtToken');
-    console.log('Retrieved token:', token);
+    // console.log('Retrieved token:', token);
     return token;
 }
 

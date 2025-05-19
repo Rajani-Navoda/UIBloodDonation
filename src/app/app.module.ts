@@ -21,7 +21,13 @@ import { BloodBankComponent } from './blood-bank/blood-bank.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { Home2Component } from './home2/home2.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
+import { SignupComponent } from './signup/signup.component';
+import { SideBarComponent } from './side-bar/side-bar.component';
 
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatListModule } from '@angular/material/list';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -36,6 +42,8 @@ import { ContactUsComponent } from './contact-us/contact-us.component';
     BloodBankComponent,
     Home2Component,
     ContactUsComponent,
+    SignupComponent,
+    SideBarComponent,
   ],
   imports: [
     BrowserModule,
@@ -44,7 +52,11 @@ import { ContactUsComponent } from './contact-us/contact-us.component';
     HttpClientModule,
     RouterModule,
     CommonModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatSidenavModule,
+    MatToolbarModule,
+    MatListModule,
+    MatIconModule
   ],
   providers: [
     AuthGuard,
